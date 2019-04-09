@@ -60,7 +60,8 @@ class EBIDownloader(object):
         for i in range(self.n_sample):
             id_number = self.ERR_num + i 
             last_number = str(id_number % 10)
-            url = 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/ERR217/00' \
+            pre_fix ='ERR'+str(self.ERR_num)[:3]
+            url = 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/'+pre_fix+'/00' \
                 +last_number+'/ERR'+str(id_number)\
                 +'/ERR'+str(id_number)+'.fastq.gz\n'
         f.write(url)
@@ -71,6 +72,7 @@ if __name__ == "__main__":
     ebid = EBIDownloader(ERR_num=1463894, ERS_num=1746339, n_sample=682)
     ebid.download_metadata()
     ebid.obtain_metadata_file('683_metadata.tsv')
+    ebid.generate_seq_urls('seq_file_list.txt')
     
 
 
