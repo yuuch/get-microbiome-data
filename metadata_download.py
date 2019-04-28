@@ -7,8 +7,8 @@ r = requests.get(url)
 with open('test_data.zip','wb') as f:
     f.write(r.content)
 """
-init_n = 1972942
-n_sample = 945
+init_n = 1126185
+n_sample = 284
 for i in range(n_sample):
     sample_id = init_n +i
     url = "https://www.ebi.ac.uk/ena/data/view/ERS"+str(sample_id)+"&display=xml\
