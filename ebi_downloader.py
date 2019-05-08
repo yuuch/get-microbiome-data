@@ -64,7 +64,7 @@ class EBIDownloader(object):
         for i in range(self.n_sample):
             id_number = self.ERR_num + i 
             last_number = str(id_number % 10)
-            pre_fix ='ERR'+str(self.ERR_num)[:3]
+            pre_fix ='ERR'+str(id_number)[:3]
             if paired:
                 url_1 = 'ftp://ftp.sra.ebi.ac.uk/vol1/fastq/'+pre_fix+'/00' \
                     +last_number+'/ERR'+str(id_number)\
